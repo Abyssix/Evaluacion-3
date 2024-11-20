@@ -1,0 +1,71 @@
+<!-- Menu desplegable desde la derecha -->
+<ion-menu side="end" content-id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title style="color: white;">Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="verAsistencia()">
+        <ion-label>Ver Asistencia del Día</ion-label>
+      </ion-item>
+      <ion-item (click)="irAPaginaQR()">
+        <ion-label>Ver Código QR</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal de la página -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botón para abrir el menú -->
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" class="ion-padding">
+
+  <!-- Mensaje de bienvenida -->
+  <ion-label class="welcome-message">
+    Bienvenido {{ nombre_usuario }}
+  </ion-label>
+
+  <!-- Sección de alumnos -->
+  <div class="section">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Alumnos Registrados</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let alumno of alumnos">
+            {{ alumno.nombre }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Sección de materias -->
+  <div class="section">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Materias Registradas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let materia of materias">
+            {{ materia.nombre }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
